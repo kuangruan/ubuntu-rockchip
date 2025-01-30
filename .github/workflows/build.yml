@@ -16,7 +16,7 @@ jobs:
             - server
           suite:
             - jammy
-            - noble
+          #  - noble
     steps:
       - name: Get more disk space
         uses: jlumbroso/free-disk-space@main
@@ -44,7 +44,8 @@ jobs:
           debootstrap flex libssl-dev bc rsync kmod cpio xz-utils fakeroot parted \
           udev dosfstools uuid-runtime git-lfs device-tree-compiler python2 python3 \
           python-is-python3 fdisk bc debhelper python3-pyelftools python3-setuptools \
-          python3-distutils python3-pkg-resources swig libfdt-dev libpython3-dev dctrl-tools libelf-dev
+          python3-distutils python3-pkg-resources swig libfdt-dev libpython3-dev dctrl-tools libelf-dev \
+          dwarves
 
       - name: Build
         shell: bash
@@ -64,7 +65,7 @@ jobs:
         matrix:
           suite:
             - jammy
-            - noble
+         #   - noble
     steps:
       - name: Get more disk space
         uses: jlumbroso/free-disk-space@main
@@ -92,7 +93,8 @@ jobs:
           debootstrap flex libssl-dev bc rsync kmod cpio xz-utils fakeroot parted \
           udev dosfstools uuid-runtime git-lfs device-tree-compiler python2 python3 \
           python-is-python3 fdisk bc debhelper python3-pyelftools python3-setuptools \
-          python3-distutils python3-pkg-resources swig libfdt-dev libpython3-dev libelf-dev 
+          python3-distutils python3-pkg-resources swig libfdt-dev libpython3-dev libelf-dev \
+          dwarves
 
       - name: Build
         shell: bash
@@ -127,7 +129,7 @@ jobs:
           # - nanopi-r6s
           # - orangepi-3b
           # - orangepi-5
-          - orangepi-5-max
+          # - orangepi-5-max
           # - orangepi-5-plus
           # - orangepi-5-pro
           # - orangepi-5b
@@ -149,7 +151,7 @@ jobs:
           - server
         suite:
           - jammy
-          - noble
+       #   - noble
         exclude:
           - board: armsom-sige5
             suite: jammy
@@ -181,7 +183,8 @@ jobs:
           debootstrap flex libssl-dev bc rsync kmod cpio xz-utils fakeroot parted \
           udev dosfstools uuid-runtime git-lfs device-tree-compiler python2 python3 \
           python-is-python3 fdisk bc debhelper python3-pyelftools python3-setuptools \
-          python3-distutils python3-pkg-resources swig libfdt-dev libpython3-dev dctrl-tools libelf-dev
+          python3-distutils python3-pkg-resources swig libfdt-dev libpython3-dev dctrl-tools libelf-dev \
+          dwarves
 
       - name: Checkout rootfs
         uses: actions/download-artifact@v4.1.2
