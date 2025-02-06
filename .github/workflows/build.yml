@@ -208,7 +208,12 @@ jobs:
           name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-preinstalled-${{ matrix.flavor }}-arm64-${{ matrix.board }}
           path: ./images/ubuntu-*-preinstalled-${{ matrix.flavor }}-arm64-${{ matrix.board }}.*
           if-no-files-found: error
-
+      - name: Upload2
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-preinstalled-${{ matrix.flavor }}-arm64-${{ matrix.board }}
+          path: ./build/linux-*_arm64.*
+          if-no-files-found: error
       - name: Clean cache
         shell: bash
         run: sync && sudo rm -rf ./images/ ./build/ && sync
